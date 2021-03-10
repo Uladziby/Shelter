@@ -1,0 +1,605 @@
+$color-primary-color: #F1CDB3;
+$color-primary-light: #FDDCC4;
+
+$color-light-xl:  #FFFFFF;
+$color-light-s: #FAFAFA;
+$color-light-l:#F6F6F6;
+
+$color-dark-s: #cdcdcd;
+$color-dark-m :#B2B2B2;
+$color-dark-l :#545454;
+$color-dark-xl: #4C4C4C;
+$color-dark-2xl: #444444;
+$color-dark-3xl :#292929;
+
+$start-screen-gradient-background: url(/shelter/assets/noise_transparent.png), 
+radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%),
+#211F20;
+$footer-gradient-background: url(/shelter/assets/noise_transparent.png),
+radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
+#211F20;
+
+$card_hover: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+
+@mixin h2{
+    font: {
+        family: Georgia;
+        size: 4.4rem;
+        weight: 400;
+        style: normal;
+    }
+    line-height: 130%;
+}
+
+@mixin h3 {
+    font: {
+        family: Georgia;
+        style: normal;
+        weight: normal;
+        size: 3.5rem;
+    }
+    line-height: 130%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin h4 {
+    font: {
+        family: Georgia;
+        style: normal;
+        weight: normal;
+        size: 2rem;
+    }
+    line-height: 115%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin h5 {
+    font: {
+        family: Georgia;
+        style: normal;
+        weight: normal;
+        size: 1.5rem;
+    }
+    line-height: 110%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin paragraph-l {
+    font: {
+        family: Arial;
+        style: normal;
+        weight: normal;
+        size: 1.5rem;
+    }
+    line-height: 160%;
+}
+
+@mixin paragraph-s {
+    font: {
+        family: Arial;
+        style: italic;
+        weight: normal;
+        size: 1.2rem;
+    }
+    line-height: 150%;
+}
+
+@mixin logo_tittle {
+    font: {
+        family: Arial;
+        style: normal;
+        weight: normal;
+        size: 3.2rem;
+    }  
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+}
+
+@mixin logo_subtitle {
+    font: {
+        family: Arial;
+        style: normal;
+        weight: normal;
+        size: 1.3rem;
+    }
+    line-height: 110%;
+    letter-spacing: 0.06rem;
+}
+
+@mixin slider_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.2rem;
+    height: 5.2rem;
+    box-shadow: inset 0 0 0 0.2rem $color-primary-color;
+    border: 0.3rem solid $color-primary-color;
+    border-radius: 100%;
+    padding: 1.9rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition-duration: 0.5s;
+
+    &:hover{
+        box-shadow: none;
+        background-color: $color-primary-light;
+    }
+}
+
+@mixin button() {
+    border-radius: 10rem;
+    border: none;
+    padding: 1.5rem 4.5rem;
+    margin-top: 4rem;
+    font-size: 1.7rem;
+    line-height: 130%;
+    cursor: pointer;
+    letter-spacing: 0.108;
+    outline: none;
+    border: none;
+    transition-duration: 0.5s;
+}
+
+@mixin button_primary() {
+    background-color: $color-primary-color;
+
+    &:hover{
+        background-color: $color-primary-light;
+    }
+
+    @include button;
+}
+
+@mixin button_secondary() {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px $color-primary-color;
+
+    &:hover{
+        box-shadow: none;
+        background-color: $color-primary-light;
+    }
+
+    border: none;
+
+    @include button;
+}
+
+
+:root {
+    font-size: 10px;
+}
+
+.icon {
+     padding: 0 12rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    --webkit-box-sizing: border-box;
+    --moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 245, 245);
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    margin: 0 auto;
+    max-width: 120rem;
+    justify-content: space-between;
+   
+}
+
+.header {
+    width: 100vw;
+    position: absolute;
+    top: 6rem;
+    max-width: 100%;
+
+    .nav {
+        width: 44.3rem;
+        display: flex;
+
+        .nav-list {
+            display: flex;   
+            width: 100%;
+            list-style-type: none;
+            justify-content: space-between; // промежутки между словами меню
+
+            &__item {
+                display: flex;
+                align-items: center;
+            }
+
+            &__link {
+                color: $color-light-xl;
+                font-family: Arial;
+                font-size: 15px;
+                line-height: 160%;
+                font-weight: 400;
+            
+                &_active {
+                    border-bottom: solid 3px $color-primary-light;
+                }
+
+                &_disabled {
+                    color: $color-dark-s;
+                }
+            }
+
+        }
+    } 
+}    
+
+.logo {
+    display: flex;
+    flex-direction: column;
+
+    &__tittle {
+        color: $color-primary-color;
+        @include logo_tittle;
+    }
+    
+    &__subtitle {
+        color: $color-light-xl;
+        margin-top: 1rem;
+        text-align: center;
+        @include logo_subtitle;
+    }
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.hero{
+    display: flex;
+    padding-top: 18rem;
+    background: $start-screen-gradient-background;
+
+    &__content{
+        display: flex;
+    }
+
+    &__image-wrapper{
+        display: flex;
+    }
+
+    &__image{
+        max-width:69.8rem;
+        max-height: 72.8rem;
+    }
+}
+
+.content-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 8.4rem;
+    padding-right: 4.2rem;
+
+    &__tittle{
+        max-width: 31rem;
+        color: $color-light-xl;
+        @include h2;
+    }
+    
+    &__subtitle{
+        margin-top: 4.2rem;
+        font-size: 1.5rem;
+        color: $color-dark-s;
+        line-height: 160%;
+        margin-top: 2.65rem;
+        font-family: Arial;
+        
+    }
+    
+    &__button{
+        margin-top: 4rem;
+        padding: 1.5rem, 4.5rem;
+        font-size: 1.7rem;
+        width: 20.7rem;
+        @include button_primary();
+    }
+}
+
+.about{ 
+
+    
+    
+    &__wrapper{
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      padding: 8rem 17.5rem 10rem 17.5rem ;
+    }
+
+    &__image-wrapper{
+        padding-right: 12rem;
+        display: flex;
+    }
+
+    &__image{
+        width: 100%;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 43rem;
+    }
+
+    &__title{
+        span{
+            display: block;
+            letter-spacing: 0.2rem;
+        }
+        color: $color-dark-l;
+        @include h3;
+    }
+
+    &__description{
+        margin-top: 2.5rem;
+        p{
+            &:nth-child(2){
+                margin-top: 2.5rem;
+            }
+            @include paragraph-l;
+            color: $color-dark-xl;
+        }
+    }
+}
+
+.pets{
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        @include h3;
+        max-width: 40rem;
+        color: $color-dark-l; 
+        text-align: center;   
+    }
+
+    &__content {
+        align-items: center;
+        display: flex;
+
+        .pets-cards {
+            padding: 6rem 0.8rem ;
+            display: flex;
+        }
+
+        .pets-card{
+            margin: 0 4.5rem;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0.9rem;
+            &:hover{
+                box-shadow: $card_hover
+            }
+            
+
+            &__image{
+             width: 100%;
+            }
+
+            &__content{
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                
+            }
+
+            &__title{
+                margin: 3rem 0;
+                text-align: center;
+                @include h4;
+            }
+
+            &__button{
+             @include button_secondary; 
+            }
+
+        }
+
+        .slider-button{
+            @include slider_button;
+            }
+        
+        .slider-button_reverted{
+                @include slider_button;
+                transform: rotate(180deg);
+        }
+    }
+    
+    &__button{
+        @include button_primary;
+    }   
+}
+
+.help{
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+
+    &__wrapper{
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    &__title{
+        color: $color-dark-l;
+        text-align: center;
+        @include h3();
+
+        span{
+            display: block;
+        }
+    }
+
+    &__content{
+        margin-top: 6rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: 12rem;
+        row-gap: 5.5rem;
+    }
+
+    &__item{
+        display: flex;
+        flex-direction: column;
+
+        &-title{
+            margin-top: 3rem;
+            color: $color-dark-l;
+            text-align: center;
+            @include h4();
+        }
+    }
+}
+
+.donation{
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+
+    &__wrapper{
+        display: flex;
+        justify-content: center;
+    }
+
+    &__image-wrapper{
+        display: flex;
+        justify-self: center;
+        align-items: center;
+    }
+
+    &__content{
+        margin-left: 3rem;
+        max-width: 41.1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__title{
+        color: $color-dark-l;
+        @include h3();
+    
+
+    span{
+        display: block;
+    }
+    }
+
+    &__subtitle{
+        margin-top: 2rem;
+        color: $color-dark-l;
+        @include h5();
+    }
+
+    &__payment{
+        @include button_primary();
+        margin-top: 2rem;
+        padding: 1rem, 1.5rem;
+        border-radius: 1rem;
+        display: flex;
+
+        &-text{
+            text-decoration: none;
+            padding-left: 1.5rem;
+            @include h4();
+        }
+    }
+
+    &__description{
+      padding-top: 2rem;
+      @include paragraph-s();
+      color: $color-dark-m;
+    }
+}
+
+.footer{
+
+    .wrapper{
+        padding: 5.6rem 8rem 0 8rem;
+    }
+
+    padding-top: 4rem;
+    background: $footer-gradient-background;
+      &__locations,  
+      &__contacts{
+          &-title{
+              @include h3();
+              color: $color-light-xl;
+              padding-bottom: 4rem;
+              
+          }
+
+          &-address,
+          &-phone,
+          &-mail {
+              display: flex;
+              align-items: center;
+              padding-bottom: 4.3rem;
+
+              
+              &-place,
+              &-text {
+                  padding-left: 2rem;
+                  color: $color-primary-color;
+                  @include h4();
+              }
+          } 
+      }
+}
+
+@media screen and (max-width: 1280px){
+    .wrapper{
+        padding: 0 4rem;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .hero__content{
+        flex-direction: column;
+    }
+
+    .about__wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .donation__wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer{
+        .wrapper{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .hero__content{
+        align-items: center;
+    }
+}
